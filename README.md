@@ -27,10 +27,9 @@ gantt
 ```
 
 
-:::info
+
 ## Group meeting
  	weekly Thursday 10:00
-:::
 
 ---
 
@@ -40,10 +39,10 @@ Github: https://github.com/czycs/ws22airbnb
 ---
 ## Software
 
-R
-github/gitlab
-(hackmd)
-overleaf
+R 
+github/gitlab 
+(hackmd) 
+overleaf 
 
 ### Namenskonvention
 YYYY-MM-DD_"aussagekräftiger Name"
