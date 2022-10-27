@@ -2,7 +2,7 @@
 Repository for ws22 Anfängerpraktikum: Deskriptive Analyse eines Datensatz(Airbnb)
 ```mermaid
 gantt
-    title timeline
+    title Timeline
     dateFormat  YYYY-MM-DD
     section Deadlines
     Start           :milestone, m1,2022-10-27, 1d
