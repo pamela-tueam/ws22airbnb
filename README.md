@@ -50,9 +50,9 @@ YYYY-MM-DD_"aussagekräftiger Name"
 
 ---
 ## Tasks
-- [ ] Create Timeline
+- [x] Create Timeline
 - [ ] Contact Project Partner
-- [ ] read data
+- [x] read data
 - [ ] Tidy Data und Plausibilitätskontrollen
 - [ ] Analyze Data
 - [ ] (Wie) Unterscheiden sich die beiden Städte im Bezug auf die angebotenen Objekte?
