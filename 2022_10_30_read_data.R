@@ -1,8 +1,8 @@
 ## R setup
 
 
-library(tidyverse)
-library(data.table)
+require(tidyverse)
+require(data.table)
 
 
 ## Read data
