@@ -14,3 +14,16 @@ Read:
 source("2022_10_30_read_data.R")
 ```
 
+```{r}
+require(geojsonio)
+berlin_neigh <- geojsonio::geojson_read("Berlin/2022_09_15_Berlin_neighbourhoods.geojson" what = "sp")
+# 'fortify' the data to get a dataframe format required by ggplot2
+library(broom)
+spdf_fortified <- berlin_neigh
+
+# Plot it
+library(ggplot2)
+ggplot() +
+
+```
+
