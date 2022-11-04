@@ -1,7 +1,7 @@
 ## R setup
 
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(tidyverse, data.table, ggplot2, broom, geojsonio)
+pacman::p_load(tidyverse, data.table, ggplot2, broom, geojsonio, stringi)
 
 
 
