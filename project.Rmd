@@ -16,14 +16,61 @@ source("2022_10_30_read_data.R")
 
 ```{r}
 require(geojsonio)
-berlin_neigh <- geojsonio::geojson_read("Berlin/2022_09_15_Berlin_neighbourhoods.geojson" what = "sp")
+berlin_neigh <- geojsonio::geojson_read("Berlin/2022_09_15_Berlin_neighbourhoods.geojson", what = "sp")
 # 'fortify' the data to get a dataframe format required by ggplot2
 library(broom)
-spdf_fortified <- berlin_neigh
+berlin_fortified <- tidy(berlin_neigh)
 
-# Plot it
 library(ggplot2)
 ggplot() +
+  geom_polygon(data = berlin_fortified, aes( x = long, y = lat, group = group), fill="#69b3a2", color="white") +
+  coord_map()
+
+```
+
+```{r}
+require(geojsonio)
+munich_neigh <- geojsonio::geojson_read("Munich/2022_09_21_Munich_neighbourhoods.geojson", what = "sp")
+# 'fortify' the data to get a dataframe format required by ggplot2
+library(broom)
+munich_fortified <- tidy(munich_neigh)
+
+library(ggplot2)
+ggplot() +
+  geom_polygon(data = munich_fortified, aes( x = long, y = lat, group = group), fill="#69b3a2", color="white") +
+  geom_point(data = munich_listings, x = munich_listings$longitude, y=munich_listings$latitude, size=0.5) +
+  coord_map()
+```
+Kenngrößen
+
+```{r}
+# Number of listings
+length(berlin_listings$id)
+length(munich_listings$id)
+
+# number of diiferent hosts
+length(unique(berlin_listings$host_id))
+length(unique(munich_listings$host_id))
+
+# mean price 
+mean(berlin_listings$price)
+mean(munich_listings$price)
+
+# median price
+
+median(berlin_listings$price)
+median(munich_listings$price)
+
+# max min
+tail(sort(berlin_listings$price))
+tail(sort(munich_listings$price))
+
+head(sort(berlin_listings$price))
+head(sort(munich_listings$price))
+
+# 0 price
+berlin_listings_full[which(berlin_listings_full$price=="$0.00"),]$listing_url
+
 
 ```
 
