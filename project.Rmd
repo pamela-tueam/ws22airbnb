@@ -101,5 +101,9 @@ ggplot(data = berlin_listings_full, mapping = aes(y=price,
 ggplot(data = berlin_listings_full, mapping = aes(x=review_scores_rating, 
                                                   y=number_of_reviews))+
   geom_point(size=0.5)
+ggplot(data = berlin_listings_full, mapping = aes(neighbourhood_group_cleansed))+
+  geom_bar()
+ggplot(data = berlin_listings_full, mapping = aes(room_type))+
+  geom_bar()
 ```
 
