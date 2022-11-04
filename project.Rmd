@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 Read:
-```{r}
+```{r message=FALSE, paged.print=FALSE}
 source("2022_10_30_read_data.R")
 ```
 
@@ -65,5 +65,41 @@ head(sort(munich_listings$price))
 berlin_listings_full[which(berlin_listings_full$price==0),]$listing_url
 
 
+```
+
+
+Ausstattung
+```{r}
+test <- list(berlin_listings_full$amenities)
+test <- sapply(test, function(x) gsub('\"', "", x, fixed = TRUE))
+test <- as.list(test)
+test <- sapply(test, function(x) gsub('\\[|\\]', "", x))
+test <- as.list(test)
+test <- stri_unescape_unicode(test)
+test <- as.list(test)
+test <- str_split(test,", ")
+#table(unlist(test))
+length(unique(unlist(test)))
+
+```
+Reviews
+
+```{r}
+dt <- berlin_listings_full[which(berlin_listings_full$review_scores_rating==0),]
+dt1 <- dt <- berlin_listings_full[which(berlin_listings_full$number_of_reviews==0),]
+```
+
+
+Berlin Plots
+```{r}
+ggplot(data = berlin_listings_full, mapping = aes(y=price, 
+                                                  x=review_scores_rating))+
+  geom_point(size=0.5)
+ggplot(data = berlin_listings_full, mapping = aes(y=price, 
+                                                  x=number_of_reviews))+
+  geom_point(size=0.5)
+ggplot(data = berlin_listings_full, mapping = aes(x=review_scores_rating, 
+                                                  y=number_of_reviews))+
+  geom_point(size=0.5)
 ```
 
